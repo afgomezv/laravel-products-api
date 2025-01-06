@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCurso;
+use App\Mail\ContactMailable;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
@@ -32,6 +34,7 @@ class CursoController extends Controller
         // $curso->save();
 
         $curso = Curso::create($request->all());
+        Mail::to('danna@email.com')->send(new ContactMailable($curso));
         return redirect()->route('cursos.show', $curso);
     }
 

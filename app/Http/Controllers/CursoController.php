@@ -32,7 +32,7 @@ class CursoController extends Controller
         // $curso->save();
 
         $curso = Curso::create($request->all());
-        return redirect()->route('cursos.show', $curso->id);
+        return redirect()->route('cursos.show', $curso);
     }
 
     public function show(Curso $curso)
@@ -49,6 +49,7 @@ class CursoController extends Controller
     {
         $request->validate([
             'name' => 'required|min:3', // ['required', 'min:3']
+            'slug' => 'required|unique:cursos,slug,' . $curso->id,     
             'description' => 'required',
             'category' => 'required',
         ]);
@@ -61,7 +62,7 @@ class CursoController extends Controller
 
         $curso->update($request->all());
 
-        return redirect()->route('cursos.show', $curso->id);
+        return redirect()->route('cursos.show', $curso);
     }
 
     public function destroy(Curso $curso)

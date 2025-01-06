@@ -6,13 +6,21 @@
     <title>@yield('title')</title>
     <!--favico-->
     <!--estilos-->
+    <style>
+        .active{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 <body>
     <!--header-->
     <!--nav-->
+    @include('layout.partials.header')
     @yield('content')
-
     <!--footer-->
+    @include('layout.partials.footer')
     <!--scripts-->
 </body>
 </html>

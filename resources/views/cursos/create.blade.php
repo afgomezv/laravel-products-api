@@ -11,10 +11,22 @@
         
         <label for="">Nombre:
             <br>
-            <input type="text" name="name" value="{{old('name')}}">
+            <input type="text" name="name" value="{{old('slug')}}">
         </label>
 
         @error('name')
+            <br>
+            <span>*{{$message}}</small>
+            <br>
+        @enderror
+
+        <br>
+        <label for="">Slug:
+            <br>
+            <input type="text" name="slug" value="{{old('slug')}}">
+        </label>
+
+        @error('slug')
             <br>
             <span>*{{$message}}</small>
             <br>

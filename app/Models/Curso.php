@@ -12,4 +12,9 @@ class Curso extends Model
     // protected $fillable = ['name', 'description', 'category'];
     // protected $guarded = ['status']; // Este ignorará el campo status en la asignación masiva.
     protected $guarded = []; // Este ignorará todos los campos en la asignación masiva.
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

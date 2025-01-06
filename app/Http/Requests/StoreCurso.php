@@ -23,6 +23,7 @@ class StoreCurso extends FormRequest
     {
         return [
             'name' => 'required|min:3', // ['required', 'min:3']
+            'slug' => 'required|unique:cursos', 
             'description' => 'required',
             'category' => 'required',
         ];
@@ -33,8 +34,6 @@ class StoreCurso extends FormRequest
         return [
             'name.required' => 'El nombre curso de es obligatorio',
             'name.min' => 'El nombre debe tener al menos 3 caracteres',
-            'description.required' => 'La descripción es obligatoria',
-            'category.required' => 'La categoría es obligatoria',
         ];
     }
 

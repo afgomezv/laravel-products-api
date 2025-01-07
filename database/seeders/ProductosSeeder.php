@@ -2,20 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Curso;
 use App\Models\Producto;
-use App\Models\User;
-
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CursoSeeder extends Seeder
+class ProductosSeeder extends Seeder
 {
-
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        User::factory(10)->create();
-        Curso::factory(50)->create();
         Producto::factory(50)->create();
     }
 }
